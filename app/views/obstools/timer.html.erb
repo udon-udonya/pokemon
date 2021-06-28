@@ -1,7 +1,7 @@
-<script src="/assets/obstools/timer.js"></script> 
 <script type="text/javascript">
     console.log('loaded body script');
-    function showClock1() {
+
+    function showClock() {
         var nowTime = new Date();
 
         var nowYear = nowTime.getFullYear();
@@ -26,7 +26,6 @@
         document.getElementById("RealtimeClockArea9").innerHTML = nowYear + "年" + msg3 + "(" + nowJpDay + ")";
         document.getElementById("RealtimeClockArea10").innerHTML = nowTime.toUTCString();
     }
-    setInterval('showClock1()', 1000);
 
     function convDay(Day) {
         switch (Day) {
@@ -69,6 +68,8 @@
                 return "";
         }
     }
+
+    window.setTimeout( setInterval('showClock()', 1000), 1000 - new Date().getMilliseconds());
 </script>
 <div>
     <p id="RealtimeClockArea">Time</p>
